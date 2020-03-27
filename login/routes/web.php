@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/read', function(){
+    $flights = App\Flight::all();
+
+    foreach ($flights as $flight) {
+        echo $flight->userName;
+    }
+});
+
+/*public function index()
+{
+    $users = DB::select('select * from userData', [1]);
+    return view('user.index', ['users' => $users]);
+}*/
+
