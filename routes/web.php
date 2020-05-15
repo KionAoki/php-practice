@@ -18,16 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/read', function(){
-    $flights = App\Flight::all();
+    $userInfos = App\UserInfo::all();
 
-    foreach ($flights as $flight) {
-        echo $flight->userName;
+    foreach ($userInfos as $userInfo) {
+        echo $userInfo->userName;
     }
 });
-
-/*public function index()
-{
-    $users = DB::select('select * from userData', [1]);
-    return view('user.index', ['users' => $users]);
-}*/
-
