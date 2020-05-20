@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::view('/welcome', 'welcome');
+/*
 Route::get('/read', function(){
     $userInfos = App\UserInfo::all();
 
@@ -24,3 +22,4 @@ Route::get('/read', function(){
         echo $userInfo->userName;
     }
 });
+*/
