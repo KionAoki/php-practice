@@ -13,13 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/welcome', 'welcome');
-/*
-Route::get('/read', function(){
-    $userInfos = App\UserInfo::all();
+Route::view('/', 'welcome');
 
-    foreach ($userInfos as $userInfo) {
-        echo $userInfo->userName;
-    }
+Route::get('foo', function () {
+    return 'Hello World';
 });
-*/

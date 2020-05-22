@@ -4,20 +4,18 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\UserInfo;
+
 class UserInfoController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        return response(UserInfo::all());
+        return UserInfo::all();
     }
 
     /**
@@ -28,7 +26,9 @@ class UserInfoController extends Controller
      */
     public function store(Request $request)
     {
-        return UserInfo::create($request->all());
+        $userInfo = UserInfo::create($request->all());
+
+        return response()->json($userInfo, 201);
     }
 
     /**
@@ -37,9 +37,9 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(UserInfo $userInfo)
     {
-        return UserInfo::find($id);
+        return $userInfo;
     }
 
     /**
@@ -49,12 +49,11 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, UserInfo $userInfo)
     {
-        $userInfo = UserInfo::findOrFail($id);
         $userInfo->update($request->all());
 
-        return $userInfo;
+        return response()->json($userInfo, 200);
     }
 
     /**
@@ -63,11 +62,10 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(UserInfo $userInfo)
     {
-        $userInfo = UserInfo::findOrFail($id);
         $userInfo->delete();
 
-        return 204;
+        return response()->json(null, 204);
     }
 }
