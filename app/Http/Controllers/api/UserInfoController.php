@@ -15,7 +15,7 @@ class UserInfoController extends Controller
      */
     public function index()
     {
-        return UserInfo::all();
+        return response()->json(UserInfo::all(), 200);
     }
 
     /**
@@ -39,7 +39,7 @@ class UserInfoController extends Controller
      */
     public function show(UserInfo $userInfo)
     {
-        return $userInfo;
+        return response()->json($userInfo, 200);
     }
 
     /**
