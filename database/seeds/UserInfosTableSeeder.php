@@ -15,17 +15,16 @@ class UserInfosTableSeeder extends Seeder
      */
     public function run()
     {
-       /* // Let's clear the users table first
-        UserInfo::truncate();
+        // Let's clear the users table first
+        //UserInfo::truncate();
 
-        DB::table('userData')->insert([
+        /*DB::table('userData')->insert([
             'userName' => Str::random(10),
             'account' => Str::random(10),
             'email' => Str::random(10).'@gmail.com',
             'pw' => Hash::make('password'),
         ]);*/
-        factory(App\UserInfo::class, 50)->create()->each(function ($userInfo) {
-            $userInfo->posts()->save(factory(App\Post::class)->make());
-        });
+
+        factory(App\UserInfo::class, 50)->create();
     }
 }

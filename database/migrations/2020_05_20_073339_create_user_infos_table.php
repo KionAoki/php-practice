@@ -13,7 +13,7 @@ class CreateUserInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_data', function (Blueprint $table) {
+        Schema::create('userData', function (Blueprint $table) {
             $table->increments('id');
             $table->string('userName');
             $table->string('account');
@@ -29,6 +29,6 @@ class CreateUserInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_infos');
+        Schema::dropIfExists('userData');
     }
 }

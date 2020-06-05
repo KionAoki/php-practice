@@ -9,7 +9,7 @@ $factory->define(UserInfo::class, function (Faker $faker) {
     return [
         'userName' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => $faker->password,
+        'pw' => $faker->password,
         'account' => $faker->userName
     ];
 });
