@@ -41,29 +41,42 @@ composer install
 ```
 npm install
 ```
+
+- 在 mySQL 建立名為 `test` 的資料庫
+
 - 設定資料庫
 
-> .env
+> 複製 `.env.example`，修改 `.env` 檔
 ```
-DB_CONNECTION=
-DB_HOST=
-DB_PORT=
-DB_DATABASE=
-DB_USERNAME=
-DB_PASSWORD=
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=test
+DB_USERNAME=(資料庫帳號)
+DB_PASSWORD=(資料庫密碼)
 ```
-> config/database.php
+> 修改 `config/database.php` 檔
 ```
     ...
-'username' => env('DB_USERNAME', ''),
-'password' => env('DB_PASSWORD', ''),
+'username' => env('DB_USERNAME', '(資料庫帳號)'),
+'password' => env('DB_PASSWORD', '(資料庫密碼)'),
     ...
 ```
+
+- 產生 app key
+
+```
+php artisan key:generate
+```
+指令將自動把產生的鑰匙，貼至 `.env`
+
 - 開啟資料庫連線
+
 - 透過 artisan 指令開啟伺服器
 ```
 php artisan serve
 ```
+若看見 Laravel 字樣的主頁，即代表安裝成功
 
 ## 測試
 此測試腳本位於 `tests/Feature/UserInfo.php`，目的為測試 CRUD 四種功能的 API
