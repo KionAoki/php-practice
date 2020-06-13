@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\UserInfo;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
@@ -15,8 +14,7 @@ class UserInfoTest extends TestCase
      *
      * @return void
      */
-    use DatabaseMigrations;
-    use RefreshDatabase;
+    use DatabaseMigrations, WithFaker;
 
     public function test()
     {
@@ -48,7 +46,7 @@ class UserInfoTest extends TestCase
 
         $payloadPut = [
             'userId' => $user['userId'],
-            'userName' => 'Sally',
+            'userName' => $this->faker->name,
             'account' => $user['account'],
             'pw' => $user['pw'],
             'email' => $user['email'],

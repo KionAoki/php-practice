@@ -95,14 +95,6 @@ DB_PASSWORD=(資料庫密碼)
 'password' => env('DB_PASSWORD', '(資料庫密碼)'),
    ...
 ```
-   
-- 開啟資料庫連線
-
-- 建立資料表與塞入假資料
-
-```
-php artisan migrate:fresh --seed
-```
 
 - 運行測試腳本
 
