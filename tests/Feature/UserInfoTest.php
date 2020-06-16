@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\UserInfo;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class UserInfoTest extends TestCase
@@ -14,7 +13,7 @@ class UserInfoTest extends TestCase
      *
      * @return void
      */
-    use DatabaseMigrations, WithFaker;
+    use WithFaker;
 
     public function test()
     {
