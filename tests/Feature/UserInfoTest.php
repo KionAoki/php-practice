@@ -45,11 +45,11 @@ class UserInfoTest extends TestCase
         $user = $this->call('GET', '/api/user/1');
 
         $payloadPut = [
-            'userId' => $user['userId'],
+            'userId' => 1,
             'userName' => $this->faker->name,
-            'account' => $user['account'],
-            'pw' => $user['pw'],
-            'email' => $user['email'],
+            'account' => $this->faker->userName,
+            'pw' => $this->faker->password,
+            'email' => $this->faker->unique()->safeEmail
         ];
 
         $response = $this->call('PUT', '/api/user/1', $payloadPut);
