@@ -41,7 +41,6 @@ class UserInfoTest extends TestCase
         $this ->assertEquals(201, $response->getStatusCode());
 
         // Put
-        $user = $this->call('GET', '/api/user/1');
 
         $payloadPut = [
             'userId' => 1,
