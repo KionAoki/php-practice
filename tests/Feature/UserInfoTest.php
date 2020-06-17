@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\UserInfo;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class UserInfoTest extends TestCase
@@ -14,7 +13,7 @@ class UserInfoTest extends TestCase
      *
      * @return void
      */
-    use DatabaseMigrations, WithFaker;
+    use WithFaker;
 
     public function test()
     {
@@ -42,14 +41,13 @@ class UserInfoTest extends TestCase
         $this ->assertEquals(201, $response->getStatusCode());
 
         // Put
-        $user = $this->call('GET', '/api/user/1');
 
         $payloadPut = [
-            'userId' => $user['userId'],
+            'userId' => 1,
             'userName' => $this->faker->name,
-            'account' => $user['account'],
-            'pw' => $user['pw'],
-            'email' => $user['email'],
+            'account' => $this->faker->userName,
+            'pw' => $this->faker->password,
+            'email' => $this->faker->unique()->safeEmail
         ];
 
         $response = $this->call('PUT', '/api/user/1', $payloadPut);

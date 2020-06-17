@@ -18,8 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('user', 'api\UserInfoController@index');
-Route::get('user/{userInfo}', 'api\UserInfoController@show');
-Route::post('user', 'api\UserInfoController@store');
-Route::put('user/{userInfo}', 'api\UserInfoController@update');
-Route::delete('user/{userInfo}', 'api\UserInfoController@delete');
+Route::apiResource('user', 'api\UserInfoController');

@@ -72,30 +72,6 @@ php artisan serve
 ## 測試
 此測試腳本位於 `tests/Feature/UserInfo.php`，目的為測試 CRUD 四種功能的 API
 
-- 在 mySQL 建立名為 `test` 的資料庫
-
-- 設定資料庫
-   
-> 修改 `.env` 檔
-
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=test
-DB_USERNAME=(資料庫帳號)
-DB_PASSWORD=(資料庫密碼)
-```
-
-> 修改 `config/database.php` 檔
-
-```
-   ...
-'username' => env('DB_USERNAME', '(資料庫帳號)'),
-'password' => env('DB_PASSWORD', '(資料庫密碼)'),
-   ...
-```
-
 - 運行測試腳本
 
 ```
