@@ -37,9 +37,9 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(UserInfo $userInfo)
+    public function show($id)
     {
-        return response()->json($userInfo, 200);
+        return response()->json(UserInfo::find($id), 200);
     }
 
     /**
@@ -49,8 +49,9 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserInfo $userInfo)
+    public function update(Request $request, $id)
     {
+        $userInfo = UserInfo::findOrFail($id);
         $userInfo->update($request->all());
 
         return response()->json($userInfo, 200);
@@ -62,9 +63,9 @@ class UserInfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserInfo $userInfo)
+    public function destroy($id)
     {
-        $userInfo->delete();
+        UserInfo::find($id)->delete();
 
         return response()->json(null, 204);
     }
